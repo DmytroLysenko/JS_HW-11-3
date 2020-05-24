@@ -21,6 +21,11 @@ export default class CountDownTimer {
   }
 
   runTimer() {
+    requestAnimationFrame(() => {
+      this.updateTimer(
+        this.calcDateItems(this.targetDate.getTime() - Date.now()),
+      );
+    });
     this.intervalId = setInterval(() => {
       const time = this.targetDate.getTime() - Date.now();
       requestAnimationFrame(() => {
